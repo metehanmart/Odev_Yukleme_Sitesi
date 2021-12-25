@@ -1,0 +1,82 @@
+﻿@model IEnumerable<proje3.Models.Veri>
+    @{ ViewBag.Title = "Sorgu"; }
+
+    <br />
+    <br />
+
+
+    <div class="ortala ort">
+        @using (Html.BeginForm("Sorgu", "Home", FormMethod.Post))
+        {
+        @Html.TextBox("OgrenciNo", "", new { placeholder = "Öğrenci Numaraları" })
+        @Html.TextBox("yazarAd", "", new { placeholder = "Yazar Adları" })
+        @Html.TextBox("ogretimTuru", "", new { placeholder = "Öğretim Türü" })
+        @Html.TextBox("dersAdi", "", new { placeholder = "Ders Adı" })
+        @Html.TextBox("ozet", "", new { placeholder = "Özet" })
+        @Html.TextBox("teslimDonemi", "", new { placeholder = "Teslim Donemi" })
+        @Html.TextBox("projeBasligi", "", new { placeholder = "Proje Başlığı" })
+        @Html.TextBox("anahtarKelimeler", "", new { placeholder = "Anahtar Kelimeler" })
+        @Html.TextBox("danismanBilgileri", "", new { placeholder = "Danisman Bilgileri" })
+        @Html.TextBox("juriBilgileri", "", new { placeholder = "Jüri Bilgileri" })
+
+        <input type="submit" value="Sorgula" />}
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th> Öğrenci Numaraları</th>
+                    <th> Yazar Adları</th>
+                    <th> Ogretim Türü</th>
+                    <th> Ders Adı</th>
+                    <th> Özet</th>
+                    <th> Teslim Dönemi</th>
+                    <th> Proje Başlığı</th>
+                    <th> Anahtar Kelimeler</th>
+                    <th> Danışman Bilgileri</th>
+                    <th> Jüri Bilgileri</th>
+                    <th> PDF</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @if (Model.Count() == 0)
+                {
+                <tr>
+                    <td>
+                        Kayıt yok
+                    </td>
+                </tr> }
+                else
+                {
+                foreach (var i in Model)
+                {
+
+                <tr>
+                    <td>@i.ogrenciNo</td>
+                    <td>@i.yazarAd</td>
+                    <td>@i.ogretimTuru</td>
+                    <td>@i.dersAdi</td>
+                    <td>@i.ozet</td>
+                    <td>@i.teslimDonemi</td>
+                    <td>@i.projeBasligi</td>
+                    <td>@i.anahtarKelimeler</td>
+                    <td>@i.danismanBilgileri</td>
+                    <td>@i.juriBilgileri</td>
+                    <td>
+                        <a href="~/UploadedFiles/@i.dosyaAdi" target="_blank">@i.dosyaAdi</a><!-- burada sadece dosya adını tutarsak onu gösterebiliriz-->
+                    </td>
+                    <td>
+                        <form style="display:inline">
+                            @Html.ActionLink("Sil", "Delete", new { id = i.verilerID }, new { @class = "btn btn-danger btn-xs btn-sm" })
+                        </form>
+                    </td>
+                </tr>                }
+                }
+            </tbody>
+
+        </table>
+        @Html.ActionLink("Donemlere Göre", "DonemlereGore", "Home")
+
+    </div>
+
+

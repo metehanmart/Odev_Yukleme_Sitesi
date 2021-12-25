@@ -1,0 +1,44 @@
+﻿@model IEnumerable<proje3.Models.ApplicationUser> 
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<table class="ortala ort">
+    <tr>
+        <th>
+            Kullanıcı Adı
+        </th>
+        <th>
+            Şifre
+        </th>
+    </tr>
+    @foreach(var i in Model)
+    {
+        <tr>
+            <td>
+                @i.UserName
+            </td>
+            <td>
+                @i.PasswordHash
+            </td>
+            <td>
+                <form style="display:inline">
+                    @Html.ActionLink("Düzenle","Edit", new { id = i.Id }, new {@class= "btn btn-warning btn-xs btn-sm" }) |
+                    @Html.ActionLink("Sil","Delete", new {id=i.Id}, new { @class = "btn btn-danger btn-xs btn-sm" })
+                </form>
+            </td>
+        </tr>
+
+    }
+    @if(ViewBag.Message != null)
+    {
+        <tr>
+            <td>
+                @ViewBag.Message
+            </td>
+        </tr>
+    }
+</table>
+

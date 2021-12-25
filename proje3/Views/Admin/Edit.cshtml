@@ -1,0 +1,34 @@
+﻿@model proje3.Models.ApplicationUser
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PasswordHash, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.PasswordHash, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Kaydet" class="btn btn-success" style="margin-top:15px" onclick="@("window.location.href='" + @Url.Action("List", "Admin") + "'");" />
+        </div>
+    </div>
+
+
+}

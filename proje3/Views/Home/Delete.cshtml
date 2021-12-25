@@ -1,0 +1,109 @@
+﻿@model proje3.Models.Veri
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<div class="ortala ort">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.yazarAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yazarAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ogrenciNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogrenciNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ogretimTuru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogretimTuru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dersAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dersAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ozet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ozet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teslimDonemi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teslimDonemi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projeBasligi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projeBasligi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.anahtarKelimeler)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.anahtarKelimeler)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.danismanBilgileri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.danismanBilgileri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.juriBilgileri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.juriBilgileri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dosyaAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dosyaAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Sorguya Geri Dön", "Sorgu", null, new { style = "white" })
+        </div>
+
+    }
+</div>
+

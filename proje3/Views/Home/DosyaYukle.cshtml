@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "DosyaYukle";
+}
+
+<h2>DosyaYukle</h2>
+
+@using (Html.BeginForm("DosyaYukle", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.TextBox("file", "", new { type = "file" }) <br />
+        <input type="submit" value="Upload" />
+        @ViewBag.Message
+    </div>
+}
+<!--
+Submite basınca upload actionresulta bakıyor    
+    ordaki value actionresult methodunun ismi olmak zorunda emin değilim
+-->

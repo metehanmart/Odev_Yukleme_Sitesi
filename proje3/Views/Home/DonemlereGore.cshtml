@@ -1,0 +1,73 @@
+﻿@model IEnumerable<proje3.Models.Veri>
+    @{
+    ViewBag.Title = "Donemlere Gore";
+    }
+
+    <h2>Donemlere Göre</h2>
+    <div class="ortala ortada">
+        @using (Html.BeginForm("DonemlereGore", "Home", FormMethod.Post))
+        {
+        @Html.TextBox("kullanici","",new {placeholder="Kullanıcı"})
+        @Html.TextBox("donem","", new { placeholder = "Teslim Donemi" })
+        @Html.TextBox("dersAdi","",new { placeholder = "Ders Adı" })
+        <input type="submit" value="Sorgu2" />
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th> Ogrenci No</th>
+                    <th> Yazar Adları</th>
+                    <th> Ogretim Türü</th>
+                    <th> Ders Adı</th>
+                    <th> Ozet</th>
+                    <th> Teslim Donemi</th>
+                    <th> Proje Basşlığı</th>
+                    <th> Anahtar Kelimeler</th>
+                    <th> Danışman Bilgileri</th>
+                    <th> Juri Bilgileri</th>
+                    <th> PDF</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @if (Model.Count() == 0)
+                {
+                <tr>
+                    <td>
+                        Kayıt yok
+                    </td>
+                </tr>
+
+                }
+                else
+                {
+                foreach (var i in Model)
+                {
+
+                <tr>
+                    <td>@i.ogrenciNo</td>
+                    <td>@i.yazarAd</td>
+                    <td>@i.ogretimTuru</td>
+                    <td>@i.dersAdi</td>
+                    <td>@i.ozet</td>
+                    <td>@i.teslimDonemi</td>
+                    <td>@i.projeBasligi</td>
+                    <td>@i.anahtarKelimeler</td>
+                    <td>@i.danismanBilgileri</td>
+                    <td>@i.juriBilgileri</td>
+                    <td>
+                        <a href="~/UploadedFiles/@i.dosyaAdi" target="_blank">@i.dosyaAdi</a><!-- burada sadece dosya adını tutarsak onu gösterebiliriz-->
+                    </td>
+
+                </tr>
+                }
+                }
+            </tbody>
+
+        </table>
+
+
+
+        }
+
+    </div>
